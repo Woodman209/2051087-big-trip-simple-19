@@ -14,16 +14,18 @@ export default class Presenter {
   addPointWithoutOfferComponent = new NewAddPointWithoutOfferView();
   waypointComponent = new NewWaypointView();
 
-  constructor({ container }) {
+  constructor({ container, pointModel }) {
     this.container = container;
+    this.pointModel = pointModel;
   }
 
   init() {
+    this.points = [...this.pointModel.getPoints()];
     render(this.sortComponent, this.container);
     render(this.editFormComponent, this.container);
 
-    for (let i = 0; i < 3; i++) {
-      render(new NewWaypointView(), this.container);
+    for (let i = 0; i < this.points.length; i++) {
+      render(new NewWaypointView({point: this.points[i]}), this.container);
     }
 
     render(this.addFormComponent, this.container);
