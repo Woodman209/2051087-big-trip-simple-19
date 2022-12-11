@@ -3,7 +3,7 @@ import NewSortView from '../view/sort-view.js';
 import NewAddFormView from '../view/add-new-point.js';
 import NewAEditFormView from '../view/edit-point.js';
 import NewAddPointWithoutOfferView from '../view/add-new-point-without-offers.js';
-import {render} from '../render.js';
+import { render } from '../render.js';
 import NewWaypointView from '../view/waypoint.js';
 
 export default class Presenter {
@@ -14,7 +14,7 @@ export default class Presenter {
   addPointWithoutOfferComponent = new NewAddPointWithoutOfferView();
   waypointComponent = new NewWaypointView();
 
-  constructor({container}) {
+  constructor({ container }) {
     this.container = container;
   }
 
@@ -29,5 +29,9 @@ export default class Presenter {
     render(this.addFormComponent, this.container);
     render(this.addPointWithoutOfferComponent, this.container);
 
+  }
+
+  initFilter() {
+    render(this.filterComponent, this.container);
   }
 }

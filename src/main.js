@@ -1,12 +1,9 @@
-import NewFilterView from './view/filters-view.js';
-import {render} from './render.js';
-
 import Presenter from './presenter/presenter.js';
 
 const controlFilters = document.querySelector('.trip-controls__filters');
 const tripEvents = document.querySelector('.trip-events');
-const presenter = new Presenter({container: tripEvents});
+const presenter = new Presenter({ container: tripEvents });
+const filter = new Presenter({container: controlFilters});
 
-render(new NewFilterView(), controlFilters);
-
+filter.initFilter();
 presenter.init();
