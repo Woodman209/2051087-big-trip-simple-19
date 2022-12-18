@@ -1,11 +1,12 @@
 import { createElement } from '../render.js';
 import { humanizeTaskDueDate } from '../utils.js';
 
-const dash = /_/gi;
+/*const dash = /_/gi;
 
 function setDash(current, setting) {
   return current.replace(setting, '-');
 }
+*/
 
 function createWaypointTemplate(point) {
   const { date_from, date_to, destination, offers } = point;

@@ -30,7 +30,6 @@ export default class Presenter {
 
     render(this.addFormComponent, this.container);
     render(this.addPointWithoutOfferComponent, this.container);
-
   }
 
   initFilter() {
