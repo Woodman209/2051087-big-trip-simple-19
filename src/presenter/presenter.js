@@ -14,25 +14,28 @@ export default class Presenter {
   addPointWithoutOfferComponent = new NewAddPointWithoutOfferView();
   waypointComponent = new NewWaypointView();
 
+  #container = null;
+  #pointModel = null;
+
   constructor({ container, pointModel }) {
-    this.container = container;
-    this.pointModel = pointModel;
+    this.#container = container;
+    this.#pointModel = pointModel;
   }
 
   init() {
-    this.points = [...this.pointModel.getPoints()];
-    render(this.sortComponent, this.container);
-    render(this.editFormComponent, this.container);
+    this.points = [...this.#pointModel.getPoints()];
+    render(this.sortComponent, this.#container.element);
+    render(this.editFormComponent, this.#container.element);
 
     for (let i = 0; i < this.points.length; i++) {
-      render(new NewWaypointView({point: this.points[i]}), this.container);
+      render(new NewWaypointView({point: this.points[i]}), this.#container.element);
     }
 
-    render(this.addFormComponent, this.container);
-    render(this.addPointWithoutOfferComponent, this.container);
+    render(this.addFormComponent, this.#container.element);
+    render(this.addPointWithoutOfferComponent, this.#container.element);
   }
 
   initFilter() {
-    render(this.filterComponent, this.container);
+    render(this.filterComponent, this.#container.element);
   }
 }
